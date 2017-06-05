@@ -133,8 +133,8 @@ def cross_validation(training_data, k=4): #k-fold cross validation
         training_set = training_folds[1] + training_folds[2] + training_folds[3]
 
         #train a model
-        structure = {'Input': 2, 'Hidden': 16, 'Output': 1}
-        epoch, learning_rate, momentum_rate = 1000000, 0.1, 1
+        structure = {'Input': 2, 'Hidden': 8, 'Output': 1}
+        epoch, learning_rate, momentum_rate = 10000, 0.1, 0
         model = build_model(training_set, structure, epoch, learning_rate, momentum_rate)
         validate_model(validation_set, model)
         errors.append(model['ValidationError'])
@@ -197,13 +197,14 @@ if __name__ == '__main__':
 
     training_size = int(len(dataset) * 0.8)
     testing_size = int(len(dataset) - training_size)
-    training_data = dataset[0:training_size]
+    training_data = dataset #dataset[0:training_size]
     testing_set = dataset #dataset[training_size:]
 
     #for model selection
     best_model = cross_validation(training_data)
 
     plot_dataset(dataset)
+    #for optimizing model parameters, should retrain the model
     testing(testing_set, best_model)
 
     plt.show()
