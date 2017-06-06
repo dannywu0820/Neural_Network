@@ -1,4 +1,6 @@
 #Reference: http://python3.codes/neural-network-python-part-1-sigmoid-function-gradient-descent-backpropagation/
+#Reference: http://www.wildml.com/2015/09/implementing-a-neural-network-from-scratch/
+#Reference: https://github.com/dennybritz/nn-from-scratch/blob/master/nn-from-scratch.ipynb
 import pandas as pd
 import sys
 import matplotlib
